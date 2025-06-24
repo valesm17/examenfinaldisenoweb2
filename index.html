@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <link rel="stylesheet" href="css/app.css"
+    <link rel="stylesheet" href="https://unpkg.com/framework7/framework7-bundle.min.css" />
+    <style>
+      :root {
+        --main-bg-color: #f8f9fa;
+        --accent-color: #4CAF50;
+        --text-color: #333;
+        --border-radius: 12px;
+        --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      body {
+        background-color: var(--main-bg-color);
+        color: var(--text-color);
+        font-family: 'Helvetica Neue', sans-serif;
+      }
+      .page-section { display: none; }
+      .page-section.active { display: block; }
+      .navbar .title {
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .block-title {
+        font-size: 18px;
+        margin-top: 20px;
+        color: var(--accent-color);
+      }
+      .list ul {
+        background: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
+        padding: 10px;
+      }
+      .item-inner {
+        padding: 10px 0;
+      }
+      .item-title {
+        font-weight: 600;
+        color: var(--text-color);
+      }
+      .item-subtitle {
+        font-size: 14px;
+        color: gray;
+      }
+      .item-text {
+        font-size: 13px;
+        color: #666;
+      }
+      .button-fill {
+        background-color: var(--accent-color);
+        border-radius: var(--border-radius);
+      }
+      .swiper-slide img {
+        width: 100%;
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- Menú Lateral -->
+      <div class="panel panel-left panel-cover">
+        <div class="view">
+          <div class="page">
+            <div class="page-content">
+              <div class="list media-list">
+                <ul>
+                  <li><a href="#" onclick="showPage('home')" class="item-link panel-close"><div class="item-content"><div class="item-inner"><div class="item-title">Inicio</div></div></div></a></li>
+                  <li><a href="#" onclick="showPage('listado')" class="item-link panel-close"><div class="item-content"><div class="item-inner"><div class="item-title">Vinilos</div></div></div></a></li>
+                  <li><a href="#" onclick="showPage('info')" class="item-link panel-close"><div class="item-content"><div class="item-inner"><div class="item-title">Información</div></div></div></a></li>
+                  <li><a href="#" onclick="showPage('profile')" class="item-link panel-close"><div class="item-content"><div class="item-inner"><div class="item-title">Perfil</div></div></div></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="view view-main">
+        <div class="pages">
+
+          <div id="home" class="page-section active">
+            <div class="navbar"><div class="navbar-inner"><div class="title">CureVinyls</div></div></div>
+            <div class="page-content">
+              <div class="block text-align-center">
+                <h1>Bienvenido a CureVinyls</h1>
+                <p>Explora vinilos clásicos para coleccionistas.</p>
+              </div>
+              <div class="block-title">Categorías Populares</div>
+              <div class="list links-list">
+                <ul>
+                  <li><a href="#" onclick="showPage('listado')">Rock Alternativo</a></li>
+                  <li><a href="#" onclick="showPage('listado')">Pop</a></li>
+                  <li><a href="#" onclick="showPage('listado')">Jazz</a></li>
+                  <li><a href="#" onclick="showPage('listado')">Post-punk</a></li>
+                </ul>
+              </div>
+              <div class="block">
+                <a href="#" onclick="showPage('listado')" class="button button-fill color-green">Explorar Vinilos</a>
+              </div>
+            </div>
+          </div>
+
+          <div id="listado" class="page-section">
+            <div class="navbar"><div class="navbar-inner"><div class="title">Vinilos Disponibles</div></div></div>
+            <div class="page-content">
+              <div class="list media-list">
+                <ul>
+                  <li>
+                    <a href="#" onclick="showPage('info')" class="item-link item-content">
+                      <div class="item-media"><img src="disintegration.jpg" alt="album" width="80"/></div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title">The Cure - Disintegration</div>
+                          <div class="item-after">$25</div>
+                        </div>
+                        <div class="item-subtitle">Vinilo Remasterizado</div>
+                        <div class="item-text">Uno de los discos más icónicos del rock alternativo.</div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><img src="unknown-pleasures.jpg" alt="joydivision" width="80"/></div>
+                      <div class="item-inner">
+                        <div class="item-title-row">
+                          <div class="item-title">Joy Division - Unknown Pleasures</div>
+                          <div class="item-after">$30</div>
+                        </div>
+                        <div class="item-subtitle">Post-punk Clásico</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="info" class="page-section">
+            <div class="navbar"><div class="navbar-inner"><div class="title">Detalle del Vinilo</div></div></div>
+            <div class="page-content">
+              <div class="block-title">The Cure - Disintegration</div>
+              <div class="swiper-container swiper-init" data-pagination='{"el": ".swiper-pagination"}'>
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="disintegration.jpg" alt="albumdisintegration" /></div>
+                  <div class="swiper-slide"><img src="cure-disintegration1.jpg" alt="albumcontents" /></div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+              <div class="block">
+                <p><b>Precio:</b> $25</p>
+                <p><b>Género:</b> Rock Alternativo</p>
+                <p><b>Descripción:</b> Edición remasterizada del clásico de 1989.</p>
+                <a href="#" class="button button-fill color-green">Comprar Ahora</a>
+              </div>
+            </div>
+          </div>
+
+          <div id="profile" class="page-section">
+            <div class="navbar"><div class="navbar-inner"><div class="title">Perfil</div></div></div>
+            <div class="page-content">
+              <div class="block text-align-center">
+                <img src="valentina.jpg" alt="valentina" style="width: 120px; border-radius: 50%; margin-bottom: 10px;" />
+                <h2>Valentina Espinal</h2>
+                <p>Desarrolladora de CureVinyls para el examen de Diseño Web II.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/framework7/framework7-bundle.min.js"></script>
+    <script>
+      function showPage(id) {
+        document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+      }
+    </script>
+  </body>
+</html>
+
